@@ -13,60 +13,75 @@ import Git from "../assets/git.png";
 
 const Skills = () => {
   return (
-    <div name="skills" className="w-full h-screen bg-[#1F2544] text-gray-300">
+    <div
+      name="skills"
+      className="w-full min-h-screen bg-[#1F2544] text-gray-300 py-16"
+    >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div>
-          <p className="text-4xl font-bold inline border-b-4 border-slate-100 ">
+          <p className="text-4xl font-bold inline border-b-4 border-slate-100">
             Skills
           </p>
           <p className="py-4">// These are the technologies I've worked with</p>
         </div>
 
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={HTML} alt="HTML icon" />
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center py-8">
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={HTML} alt="HTML icon" />
             <p className="my-4">HTML</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={CSS} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={CSS} alt="CSS icon" />
             <p className="my-4">CSS</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={JavaScript} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img
+              className="w-16 sm:w-20 mx-auto"
+              src={JavaScript}
+              alt="JavaScript icon"
+            />
             <p className="my-4">JAVASCRIPT</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={ReactImg} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img
+              className="w-16 sm:w-20 mx-auto"
+              src={ReactImg}
+              alt="React icon"
+            />
             <p className="my-4">REACT</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={C} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={C} alt="C icon" />
             <p className="my-4">C</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Sql} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={Sql} alt="SQL icon" />
             <p className="my-4">SQL</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-36 mx-auto" src={Yolo} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-28 sm:w-36 mx-auto" src={Yolo} alt="YOLO icon" />
             <p className="my-4">YOLO</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Python} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img
+              className="w-16 sm:w-20 mx-auto"
+              src={Python}
+              alt="Python icon"
+            />
             <p className="my-4">PYTHON</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Vue} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={Vue} alt="Vue icon" />
             <p className="my-4">VUE</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Net} alt="HTML icon" />
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={Net} alt="C# icon" />
             <p className="my-4">C#</p>
           </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Git} alt="HTML icon" />
-            <p className="my-4">GİT</p>
+          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 p-4">
+            <img className="w-16 sm:w-20 mx-auto" src={Git} alt="Git icon" />
+            <p className="my-4">GIT</p>
           </div>
         </div>
       </div>
