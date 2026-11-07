@@ -10,6 +10,10 @@
 
 # production
 /build
+/dist
+
+# Vite cache
+/node_modules/.vite
 
 # misc
 .DS_Store

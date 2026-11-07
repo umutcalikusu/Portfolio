@@ -1,75 +1,56 @@
 import CoronaApp from "../assets/projects/corona-app.png";
 import WeatherApp from "../assets/projects/weather-app.png";
 import Trex from "../assets/projects/trex-game2.png";
-import LoginForm from "../assets/projects/login-app.png";
-import MusicPlayer from "../assets/projects/music-player2.png";
 import MovieApp from "../assets/projects/movie-app.png";
-import TodoApp from "../assets/projects/todo-app.png";
-import QuizApp from "../assets/projects/quiz-app.png";
 import KanbanApp from "../assets/projects/kanban_2.png";
+import RestaurantApp from "../assets/projects/restaurant.png";
 
+// None of these projects has a live deployment, so each entry links to its
+// GitHub repository only. Leave `github` empty for a private repository.
+// Optional `tech: ["React", ...]` renders stack badges under the description.
 export const data = [
   {
     id: 1,
-    name: "Corona Application",
-    image: CoronaApp,
-    github: "https://github.com/umutcalikusu/React-Corona-App",
-    live: "https://github.com/umutcalikusu/React-Corona-App",
+    name: "Restaurant & QR Menu Platform",
+    image: RestaurantApp,
+    desc: "A restaurant website with a menu that guests open by scanning a QR code at the table.",
+    github: "https://github.com/umutcalikusu/RestaurantWebSite",
   },
   {
     id: 2,
-    name: "Weather Application",
-    image: WeatherApp,
-    github: "https://github.com/umutcalikusu/React-Weather-App",
-    live: "https://github.com/umutcalikusu/React-Weather-App",
+    name: "Self-Playing Dino Game (AI)",
+    image: Trex,
+    desc: "The T-rex runner game, played by an AI agent that learns on its own when to jump.",
+    github: "https://github.com/umutcalikusu/Trex-Game-AI",
   },
   {
     id: 3,
-    name: "Todo Application",
-    image: TodoApp,
-    github: "https://github.com/umutcalikusu/React-Todo-App",
-    live: "https://github.com/umutcalikusu/React-Todo-App",
+    name: "Kanban Application",
+    image: KanbanApp,
+    desc: "A task board with a column for each stage of work.",
+    github: "https://github.com/umutcalikusu/Kanban-App",
   },
   {
     id: 4,
-    name: "Music Player Application",
-    image: MusicPlayer,
-    github: "https://github.com/umutcalikusu/Music-Player-App",
-    live: "https://github.com/umutcalikusu/Music-Player-App",
+    name: "Weather Application",
+    image: WeatherApp,
+    desc: "Current conditions for a searched city, from a public weather API.",
+    github: "https://github.com/umutcalikusu/React-Weather-App",
+    tech: ["React"],
   },
   {
     id: 5,
-    name: "Login Form",
-    image: LoginForm,
-    github: "https://github.com/umutcalikusu/Login-App-2",
-    live: "https://github.com/umutcalikusu/Login-App-2",
+    name: "Corona Application",
+    image: CoronaApp,
+    desc: "COVID-19 figures by country, from a public data API.",
+    github: "https://github.com/umutcalikusu/React-Corona-App",
+    tech: ["React"],
   },
   {
     id: 6,
     name: "Movie Application",
     image: MovieApp,
+    desc: "Browse and search films from a movie database.",
     github: "",
-    live: "",
-  },
-  {
-    id: 7,
-    name: "Trex Game",
-    image: Trex,
-    github: "https://github.com/umutcalikusu/Trex-Game-AI",
-    live: "https://github.com/umutcalikusu/Trex-Game-AI",
-  },
-  {
-    id: 8,
-    name: "Quiz App",
-    image: QuizApp,
-    github: "https://github.com/umutcalikusu/Quiz-App",
-    live: "https://github.com/umutcalikusu/Quiz-App",
-  },
-  {
-    id: 9,
-    name: "Kanban Application",
-    image: KanbanApp,
-    github: "https://github.com/umutcalikusu/Kanban-App",
-    live: "https://github.com/umutcalikusu/Kanban-App",
   },
 ];

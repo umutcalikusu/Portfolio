@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-11-07T23:26:31.196Z",
+        "reason": "user confirmed (Nov 2026): gradient kept only on the hero name as a signature; section headings use solid blue"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "src/components/Home.jsx"
+        ],
+        "createdAt": "2026-11-07T23:26:31.374Z",
+        "reason": "user confirmed (Nov 2026): violet/blue badge family is part of the site's chosen identity"
+      }
+    ]
+  }
+}

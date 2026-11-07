@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Umut Çalıkuşu — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio of Umut Çalıkuşu, Computer Engineer & Full-Stack Developer: backend work on payment systems (Ziraat Katılım) and telecom data (Türk Telekom) via Techne Bilişim, plus side projects.
 
-## Available Scripts
+A dark, animated single-page site with sections Home, About, Experience, Skills, Projects and Contact.
 
-In the project directory, you can run:
+## Stack
+- React 18 + Vite
+- Tailwind CSS 3
+- Framer Motion (section animations)
+- Three.js + React Three Fiber + Drei (3D scenes, lazy-loaded)
+- Lenis (smooth scrolling, turned off when the visitor prefers reduced motion)
+- react-icons
 
-### `npm start`
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Build for production
+```bash
+npm run build
+npm run preview
+```
+The build goes to `dist/`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Editing content
+| What | Where |
+|---|---|
+| Projects (name, screenshot, description, GitHub link, optional `tech` badges) | `src/data/data.js` |
+| Project screenshots | `src/assets/projects/` |
+| Hero text, stats and tech badges | `src/components/Home.jsx` |
+| Experience entries | `src/components/Experience.jsx` |
+| Skills | `src/components/Skills.jsx` |
+| CV (PDF) | `public/Umut-CV.pdf` |
+| Page title, description and share image | `index.html` |
 
-### `npm test`
+The projects have no live deployments, so each card links only to its GitHub repository. Leave `github` empty for a private repository and the card shows "Private".
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 3D scenes
+The 3D code lives in `src/three/` and loads only after the page is open:
+- `HeroNetwork.jsx`: the data network behind the hero, which fades out as you scroll.
+- `ProjectGallery.jsx`: the 3D project arc, shown on desktop (1024px+ with a mouse). Phones and tablets get the regular project cards.
+- `ParticleText.jsx`: draws "Let’s build it." in Contact as particles that scatter around the cursor.
 
-### `npm run build`
+Each scene animates only while it is on screen, and none of them load without WebGL or when the visitor prefers reduced motion; the normal page shows instead.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Colours and fonts
+Theme colours live in `tailwind.config.js` (`ink`, `panel`, `blue`, `violet`, …). `blue` and `violet` are defined with `DEFAULT`, so `text-blue` uses the brand blue while Tailwind's own `blue-300`…`blue-600` shades keep working. Fonts are Manrope and DM Mono, loaded in `src/index.css`.
