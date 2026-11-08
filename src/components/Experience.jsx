@@ -15,7 +15,7 @@ const experiences = [
     title: "Software Developer",
     company: "Techne Bilişim (Türk Telekom)",
     area: "Telecommunications",
-    text: "Developing data-heavy query systems and high-throughput telecom applications using .NET and Vue.js. Building end-to-end data validation flows, optimizing query performance, and maintaining high-availability backend services.",
+    text: "Developing data-heavy query systems and high-throughput telecommunications applications using .NET and Vue.js. Building end-to-end data validation flows, optimizing query performance, and maintaining high-availability backend services.",
     tech: [".NET", "Vue.js", "T-SQL / PL-SQL", "Query Optimization", "APIs"],
   },
   {

@@ -4,7 +4,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 // A terminal session that types itself out once it scrolls into view.
 const SESSION = [
   ["whoami", "Umut Çalıkuşu · Computer Engineer & Full-Stack Developer"],
-  ["domains", "Payment systems (Ziraat Katılım) · Telecom (Türk Telekom)"],
+  ["domains", "Payment systems (Ziraat Katılım) · Telecommunications (Türk Telekom)"],
   ["stack", "C# / .NET · T-SQL / PL-SQL · React · Vue.js"],
   ["mission", "Turning complex workflows into fast, reliable software"],
   ["cat contact.txt", "umut54709@gmail.com · Have an idea? Let’s build it."],

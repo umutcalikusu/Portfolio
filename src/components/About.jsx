@@ -12,7 +12,7 @@ const areas = [
   [
     FiRadio,
     "Telecommunications",
-    "High-throughput data flows, domain validation logic, and data-intensive telecom applications.",
+    "High-throughput data flows, domain validation logic, and data-intensive telecommunications applications.",
   ],
   [
     FiCode,

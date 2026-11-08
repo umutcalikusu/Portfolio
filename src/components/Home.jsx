@@ -83,7 +83,7 @@ export default function Home() {
             transition={{ delay: 0.22 }}
             className="mt-4 max-w-[620px] text-sm leading-7 text-slate-400 sm:text-base"
           >
-            I build the backend behind payment systems and telecom data for
+            I build the backend behind payment systems and telecommunications data for
             Ziraat Katılım and Türk Telekom: .NET services, SQL that has to be
             fast, and the React and Vue screens on top. Got an idea? I can take
             it from the database to the interface.

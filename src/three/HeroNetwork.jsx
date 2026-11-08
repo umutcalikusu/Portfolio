@@ -5,7 +5,7 @@ import { BLUE, VIOLET, SKY, rng, dotTexture, pointer } from "./common.js";
 import { isTouch } from "./gate.js";
 
 // A slowly turning network of nodes; light packets travel along its links,
-// like transactions and telecom traffic moving through a system.
+// like transactions and telecommunications traffic moving through a system.
 function buildNetwork(count) {
   const rand = rng(42);
   const nodes = [];

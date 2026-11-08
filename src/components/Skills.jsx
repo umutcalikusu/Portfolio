@@ -30,7 +30,7 @@ const skillCategories = [
       },
       {
         name: "Microservices Architecture",
-        desc: "Applied in Telecom & Finance Projects",
+        desc: "Applied in Telecommunications & Finance Projects",
         usedAt: "Ziraat Katılım · Türk Telekom",
         icon: FiBox,
       },
@@ -72,6 +72,7 @@ const skillCategories = [
       {
         name: "MSSQL & Oracle",
         desc: "Enterprise Storage Engines",
+        usedAt: "Ziraat Katılım · Türk Telekom",
         icon: FiHardDrive,
       },
       {
@@ -88,6 +89,7 @@ const skillCategories = [
       {
         name: "Git & Workflows",
         desc: "Version Control & Enterprise Git",
+        usedAt: "Ziraat Katılım · Türk Telekom",
         icon: FiGitBranch,
       },
       { name: "Python", desc: "Automation & Data Logic", icon: SiPython },
