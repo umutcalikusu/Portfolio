@@ -1,22 +1,23 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { palette, rgba } from "../theme.js";
 
 const experiences = [
   {
     period: "2025 — PRESENT",
     title: "Software Developer",
     company: "Techne Bilişim (Ziraat Katılım)",
-    area: "Finance / Payment Systems",
-    text: "Building enterprise payment infrastructure and business-critical backend services using .NET, React, JavaScript, and complex database workflows. Focused on transaction processing, secure payment integrations, and high-reliability software solutions.",
-    tech: [".NET", "React", "JavaScript", "SQL", "Payment Gateways"],
+    area: "Banking / Payment Systems",
+    text: "Migrating Ziraat Bank’s payment systems module to Ziraat Katılım, a participation bank. I reshape the .NET services and database workflows for the new bank’s requirements, and rebuild the original React screens in plain JavaScript.",
+    tech: [".NET", "React", "JavaScript", "SQL", "Payment Systems"],
   },
   {
     period: "2024 — PRESENT",
     title: "Software Developer",
     company: "Techne Bilişim (Türk Telekom)",
     area: "Telecommunications",
-    text: "Developing data-heavy query systems and high-throughput telecommunications applications using .NET and Vue.js. Building end-to-end data validation flows, optimizing query performance, and maintaining high-availability backend services.",
-    tech: [".NET", "Vue.js", "T-SQL / PL-SQL", "Query Optimization", "APIs"],
+    text: "Maintaining and extending a query system fed by many SOAP services and an Oracle database. I track down and fix bugs across these integrations, tune slow Oracle queries, and build new features as requests come in.",
+    tech: [".NET", "Vue.js", "SOAP", "Oracle", "PL/SQL", "Query Optimization"],
   },
   {
     period: "ACADEMIC FOUNDATION",
@@ -39,16 +40,13 @@ export default function Experience() {
   return (
     <section id="experience" className="border-t hairline">
       <div className="mx-auto max-w-[1500px] px-5 py-24 lg:px-16 lg:py-32">
-        <div className="mb-12 font-mono text-xs tracking-[.18em] text-blue">
-          02 / EXPERIENCE
-        </div>
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <h2 className="text-5xl font-extrabold leading-none tracking-[-.055em] sm:text-6xl">
             Where I’ve
             <br />
-            <span className="text-blue">learned by building.</span>
+            <span className="text-accent">learned by building.</span>
           </h2>
-          <p className="max-w-md text-sm leading-7 text-slate-400">
+          <p className="max-w-md text-sm leading-7 text-fg-2">
             Real-world enterprise software development in payment systems and
             telecommunications via Techne Bilişim, backed by a solid engineering
             foundation.
@@ -56,11 +54,11 @@ export default function Experience() {
         </div>
         <div ref={listRef} className="relative border-t hairline pl-8 lg:pl-10">
           {/* Timeline track and the part of it that fills while scrolling. */}
-          <span aria-hidden="true" className="absolute bottom-0 left-[7px] top-0 w-px bg-white/10" />
+          <span aria-hidden="true" className="absolute bottom-0 left-[7px] top-0 w-px bg-line" />
           <motion.span
             aria-hidden="true"
             style={{ scaleY: fill }}
-            className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-gradient-to-b from-blue via-blue to-violet shadow-[0_0_12px_rgba(50,140,255,.8)]"
+            className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-accent shadow-accent-line"
           />
           {experiences.map((x, i) => (
             <motion.article
@@ -72,41 +70,41 @@ export default function Experience() {
             >
               <motion.span
                 aria-hidden="true"
-                initial={{ backgroundColor: "#050814", boxShadow: "0 0 0 rgba(50,140,255,0)" }}
-                whileInView={{ backgroundColor: "#328cff", boxShadow: "0 0 16px rgba(50,140,255,.9)" }}
+                initial={{ backgroundColor: palette.bg, boxShadow: `0 0 0 ${rgba(palette.accent, 0)}` }}
+                whileInView={{ backgroundColor: palette.accent, boxShadow: `0 0 16px ${rgba(palette.accent, 0.8)}` }}
                 viewport={{ once: true, margin: "0px 0px -45% 0px" }}
                 transition={{ duration: 0.4 }}
-                className="absolute -left-[30px] top-[36px] h-[13px] w-[13px] rounded-full border-2 border-blue lg:-left-[38px]"
+                className="absolute -left-[30px] top-[36px] h-[13px] w-[13px] rounded-full border-2 border-accent lg:-left-[38px]"
               />
-              <div className="font-mono text-xs tracking-[.14em] text-blue">
+              <div className="font-mono text-xs tracking-[.14em] text-fg-2">
                 {x.period}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">{x.title}</h3>
-                <div className="mt-1 flex items-center gap-2 font-mono text-xs text-slate-400">
-                  <span className="text-blue-400 font-semibold">
+                <h3 className="text-xl font-bold text-fg">{x.title}</h3>
+                <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 pr-8 font-mono text-xs text-fg-2 lg:pr-0">
+                  <span className="font-medium text-accent">
                     {x.company}
                   </span>
                   <span>·</span>
-                  <span className="uppercase tracking-wider text-slate-400 text-xs">
+                  <span className="uppercase tracking-wider text-fg-2 text-xs">
                     {x.area}
                   </span>
                 </div>
-                <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-400">
+                <p className="mt-4 max-w-[32rem] text-sm leading-7 text-fg-2">
                   {x.text}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {x.tech.map((item) => (
                     <span
                       key={item}
-                      className="rounded border hairline bg-[#080e1d] px-2.5 py-1 font-mono text-xs text-slate-400"
+                      className="rounded-full border hairline bg-surface px-2.5 py-1 font-mono text-xs text-fg-2"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
               </div>
-              <span className="font-mono text-xs text-slate-400">
+              <span className="absolute right-0 top-8 font-mono text-xs text-fg-3 lg:static">
                 0{i + 1}
               </span>
             </motion.article>

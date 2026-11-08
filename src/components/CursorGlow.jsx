@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
+import { palette, rgba } from "../theme.js";
 
-// A soft blue/violet light that drifts after the mouse. Desktop pointers only.
+// A soft rust/honey light that drifts after the mouse. Desktop pointers only.
 export default function CursorGlow() {
   const ref = useRef(null);
   const reduce = useReducedMotion();
@@ -42,7 +43,7 @@ export default function CursorGlow() {
       className="pointer-events-none fixed inset-0 z-0 opacity-0 transition-opacity duration-700"
       style={{
         background:
-          "radial-gradient(520px circle at var(--gx, 70%) var(--gy, 25%), rgba(50,140,255,.10), rgba(115,87,255,.05) 40%, transparent 70%)",
+          `radial-gradient(520px circle at var(--gx, 70%) var(--gy, 25%), ${rgba(palette.accent, 0.05)}, ${rgba(palette.honey, 0.025)} 40%, transparent 70%)`,
       }}
     />
   );

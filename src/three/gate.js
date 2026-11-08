@@ -27,6 +27,7 @@ export function useSceneGate({ minWidth = 0, margin = "200px" } = {}) {
   const reduce = useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const [active, setActive] = useState(false);
+  const [seen, setSeen] = useState(false);
 
   useEffect(() => {
     const check = () =>
@@ -39,12 +40,15 @@ export function useSceneGate({ minWidth = 0, margin = "200px" } = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setActive(e.isIntersecting), {
+    const io = new IntersectionObserver(([e]) => {
+      setActive(e.isIntersecting);
+      if (e.isIntersecting) setSeen(true);
+    }, {
       rootMargin: margin,
     });
     io.observe(el);
     return () => io.disconnect();
   }, [margin, enabled]);
 
-  return { ref, enabled, active };
+  return { ref, enabled, active, seen };
 }

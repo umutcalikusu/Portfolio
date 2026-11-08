@@ -1,8 +1,7 @@
 import { Suspense, useMemo, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useTexture } from "@react-three/drei";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { BLUE, pointer } from "./common.js";
+import { ACCENT, pointer } from "./common.js";
 
 // Screenshots stand on an arc; the active one turns to face the visitor.
 const RADIUS = 9;
@@ -71,7 +70,7 @@ function Panel({ tex, index, count, rotation, onSelect, dragging }) {
         <meshBasicMaterial map={tex} transparent toneMapped={false} />
       </mesh>
       <lineSegments ref={edge} geometry={edges} position={[0, 0, 0.001]}>
-        <lineBasicMaterial color={BLUE} transparent />
+        <lineBasicMaterial color={ACCENT} transparent />
       </lineSegments>
     </group>
   );
@@ -81,7 +80,7 @@ function Arc({ images, active, onSelect, drag, dragging }) {
   const group = useRef();
   const rotation = useRef(active * STEP);
   const { camera } = useThree();
-  const textures = useTexture(images);
+  const textures = useLoader(THREE.TextureLoader, images);
   useMemo(() => textures.forEach(coverTop), [textures]);
 
   useFrame((_, dt) => {

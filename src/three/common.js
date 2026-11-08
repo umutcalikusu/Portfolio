@@ -1,22 +1,12 @@
 import * as THREE from "three";
+import { palette } from "../theme.js";
 
-export const BLUE = new THREE.Color("#328cff");
-export const VIOLET = new THREE.Color("#7357ff");
-export const SKY = new THREE.Color("#8fc2ff");
+// Scene colours come from the site palette (src/theme.js).
+export const ACCENT = new THREE.Color(palette.accent);
+export const ACCENT_HOVER = new THREE.Color(palette.accentHover);
 
-// Deterministic random numbers so the scenes look the same on every visit.
-export function rng(seed = 7) {
-  let s = seed >>> 0;
-  return () => {
-    s = (s + 0x6d2b79f5) >>> 0;
-    let t = s;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-// Soft round sprite used by every point cloud, so points read as glowing dots.
+// Soft round sprite used by every point cloud. It is a white alpha mask that
+// the materials tint, so its white is not a palette colour.
 let dot;
 export function dotTexture() {
   if (dot) return dot;

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BLUE, VIOLET, dotTexture } from "./common.js";
+import { ACCENT, ACCENT_HOVER, dotTexture } from "./common.js";
 
 const PAD = 80; // room around the text for particles to scatter into
 const REPEL = 80; // pointer radius in px
@@ -21,7 +21,7 @@ function sample(el, gap) {
   if ("letterSpacing" in g) g.letterSpacing = cs.letterSpacing;
   g.textAlign = "center";
   g.textBaseline = "middle";
-  g.fillStyle = "#fff";
+  g.fillStyle = "#fff"; // alpha mask for sampling only, never drawn
   g.fillText(el.textContent, w / 2, h / 2 + parseFloat(cs.fontSize) * 0.04);
   const data = g.getImageData(0, 0, w, h).data;
   const pts = [];
@@ -40,7 +40,6 @@ function Particles({ targets, width, active, box, gap }) {
     const pos = new Float32Array(n * 3);
     const tgt = new Float32Array(n * 3);
     const col = new Float32Array(n * 3);
-    const white = new THREE.Color("#ffffff");
     const c = new THREE.Color();
     targets.forEach(([x, y], i) => {
       tgt[i * 3] = x;
@@ -49,10 +48,8 @@ function Particles({ targets, width, active, box, gap }) {
       pos[i * 3] = (Math.random() - 0.5) * width * 1.4;
       pos[i * 3 + 1] = (Math.random() - 0.5) * 420;
       pos[i * 3 + 2] = 0;
-      // Same white → blue → violet sweep as the site's gradient headings.
-      const f = (x + width / 2) / width;
-      if (f < 0.5) c.copy(white).lerp(BLUE, f * 2);
-      else c.copy(BLUE).lerp(VIOLET, (f - 0.5) * 2);
+      // Solid rust orange; a faint random shift keeps it from reading as a flat block.
+      c.copy(ACCENT).lerp(ACCENT_HOVER, Math.random() * 0.5);
       c.toArray(col, i * 3);
     });
     return { pos, tgt, col };
@@ -137,10 +134,16 @@ export default function ParticleText({ el, active, onReady }) {
         setShape(s);
       });
     build();
-    window.addEventListener("resize", build);
+    let timer;
+    const onResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(build, 200);
+    };
+    window.addEventListener("resize", onResize);
     return () => {
       cancelled = true;
-      window.removeEventListener("resize", build);
+      clearTimeout(timer);
+      window.removeEventListener("resize", onResize);
     };
   }, [el]);
 

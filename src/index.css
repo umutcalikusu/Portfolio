@@ -1,20 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Arial sized to Manrope's metrics (400 weight: 0.525em vs 0.506em average
+   advance; ascender 1.066, descender 0.300), so paragraphs keep their line
+   breaks while the web font loads. */
+@font-face {
+  font-family: "Manrope Fallback";
+  src: local("Arial"), local("Helvetica"), local("Roboto");
+  size-adjust: 103.7%;
+  ascent-override: 102.8%;
+  descent-override: 28.9%;
+  line-gap-override: 0%;
+}
+
+/* Every colour below comes from src/theme.js through Tailwind's theme(). */
 @layer base {
   /* position: relative lets Framer Motion's useScroll measure offsets correctly. */
-  html { scroll-behavior: auto; position: relative; }
-  body { @apply m-0 bg-ink text-white antialiased; }
+  html {
+    scroll-behavior: auto;
+    position: relative;
+    color-scheme: dark;
+    scrollbar-color: theme('colors.raised') theme('colors.bg');
+  }
+  body { @apply m-0 bg-bg text-fg antialiased; }
   * { box-sizing: border-box; }
   button, a { font: inherit; }
-  ::selection { background: rgba(50,140,255,.35); color: white; }
-  :focus-visible { outline: 2px solid #5aa2ff; outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: theme('colors.accent.DEFAULT / 35%'); color: theme('colors.fg.DEFAULT'); }
+  :focus-visible { outline: 2px solid theme('colors.accent.hover'); outline-offset: 3px; border-radius: 6px; }
   section[id] { scroll-margin-top: 84px; }
+  p { text-wrap: pretty; }
+
+  /* WebKit scrollbars */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: theme('colors.bg'); }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.raised');
+    border: 2px solid theme('colors.bg');
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: theme('colors.fg.3'); }
 }
 
 @keyframes blink { 50% { opacity: 0; } }
+
+/* Hero status dot: a slow, faint ring that breathes out from the dot. */
+@keyframes status-pulse {
+  0% { transform: scale(1); opacity: 0.45; }
+  70%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* One short hop of the çalıkuşu: lift with a tilt, land with a small squash.
+   Used once on the 404 page and on hover/focus of "View My Work". */
+@keyframes wren-hop {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+  35% { transform: translateY(-38%) rotate(-8deg) scale(1); }
+  62% { transform: translateY(0) rotate(0) scale(1.06, 0.92); }
+  80% { transform: translateY(-6%) rotate(0) scale(1); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -24,7 +67,5 @@
 }
 
 @layer utilities {
-  .text-gradient { @apply bg-gradient-to-r from-white via-blue to-violet bg-clip-text text-transparent; }
-  .hairline { border-color: rgba(132,158,211,.16); }
-  .glass { background: rgba(6,12,27,.72); backdrop-filter: blur(18px); }
+  .hairline { border-color: theme('colors.line'); }
 }

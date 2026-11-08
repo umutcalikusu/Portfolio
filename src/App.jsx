@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-    <div className="min-h-screen overflow-x-hidden bg-ink text-white">
+    <div className="min-h-screen overflow-x-hidden bg-bg text-fg">
       <CursorGlow />
       <Navbar />
       <main className="relative z-10">

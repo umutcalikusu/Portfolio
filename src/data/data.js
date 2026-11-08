@@ -1,9 +1,9 @@
-import CoronaApp from "../assets/projects/corona-app.png";
-import WeatherApp from "../assets/projects/weather-app.png";
+import CoronaApp from "../assets/projects/corona-app.webp";
+import WeatherApp from "../assets/projects/weather-app.webp";
 import Trex from "../assets/projects/trex-game2.png";
-import MovieApp from "../assets/projects/movie-app.png";
-import KanbanApp from "../assets/projects/kanban_2.png";
-import RestaurantApp from "../assets/projects/restaurant.png";
+import MovieApp from "../assets/projects/movie-app.webp";
+import KanbanApp from "../assets/projects/kanban_2.webp";
+import RestaurantApp from "../assets/projects/restaurant.webp";
 
 // None of these projects has a live deployment, so each entry links to its
 // GitHub repository only. Leave `github` empty for a private repository.
