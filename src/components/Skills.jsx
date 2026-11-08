@@ -45,7 +45,12 @@ const skillCategories = [
   {
     category: "FRONTEND DEVELOPMENT",
     items: [
-      { name: "React", desc: "Modern UI Component Systems", icon: SiReact, usedAt: "Ziraat Katılım · side projects" },
+      {
+        name: "React",
+        desc: "Modern UI Component Systems",
+        icon: SiReact,
+        usedAt: "Ziraat Katılım",
+      },
       {
         name: "Vue.js",
         desc: "Data-driven Web Applications",
@@ -93,7 +98,12 @@ const skillCategories = [
         icon: FiGitBranch,
       },
       { name: "Python", desc: "Automation & Data Logic", icon: SiPython },
-      { name: "Computer Vision", desc: "ML & Image Processing", icon: FiCpu, usedAt: "University research" },
+      {
+        name: "Computer Vision",
+        desc: "ML & Image Processing",
+        icon: FiCpu,
+        usedAt: "University research",
+      },
     ],
   },
 ];
@@ -107,7 +117,6 @@ export default function Skills() {
   return (
     <section id="skills" className="border-t hairline">
       <div className="mx-auto max-w-[1500px] px-5 py-24 lg:px-16 lg:py-32">
-
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <h2 className="text-5xl font-extrabold leading-none tracking-[-.055em] sm:text-6xl">
@@ -139,17 +148,12 @@ export default function Skills() {
 
         <div className="grid gap-x-12 gap-y-14 lg:grid-cols-2">
           {skillCategories.map((cat, idx) => (
-            <div
-              key={cat.category}
-              className="min-w-0"
-            >
+            <div key={cat.category} className="min-w-0">
               <div className="mb-6 flex items-center justify-between border-b hairline pb-4">
                 <span className="font-mono text-xs font-medium tracking-wider text-accent">
                   {cat.category}
                 </span>
-                <span className="font-mono text-xs text-fg-2">
-                  0{idx + 1}
-                </span>
+                <span className="font-mono text-xs text-fg-2">0{idx + 1}</span>
               </div>
               {/* Phones: one swipeable row per category. Larger screens: three columns. */}
               <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
@@ -161,9 +165,7 @@ export default function Skills() {
                   >
                     <Icon className="h-6 w-6 text-fg-2 transition group-hover:text-accent" />
                     <div className="mt-4">
-                      <div className="text-xs font-bold text-fg">
-                        {name}
-                      </div>
+                      <div className="text-xs font-bold text-fg">{name}</div>
                       <div className="mt-1 break-words font-mono text-xs leading-tight text-fg-2 [hyphens:auto]">
                         {desc}
                       </div>
